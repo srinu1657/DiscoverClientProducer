@@ -1,9 +1,8 @@
 package com.example.DiscoverClientProducer.controller;
 
+import com.example.DiscoverClientProducer.model.Employee;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/emp")
@@ -12,5 +11,11 @@ public class EmployeeRestController {
     public ResponseEntity<String> showMsg(){
         return ResponseEntity.ok("From Employee Service!!!");
     }
+
+    @PostMapping("/addEmp")
+    public ResponseEntity<String> addEmp(@RequestBody Employee employee) {
+        return ResponseEntity.ok(employee.getId()+employee.getName());
+    }
+
 }
 
